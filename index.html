@@ -570,7 +570,19 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 /* ---------- carrusel de fotos (1 a 10) ---------- */
-const TOTAL_PHOTOS = 10;
+const HERO_PHOTOS = [
+  "img/IMG_8077.jpg",
+  "img/IMG_8043.jpg",
+  "img/foto3.jpg",
+  "img/foto4.jpg",
+  "img/foto5.jpg",
+  "img/foto6.jpg",
+  "img/foto7.jpg",
+  "img/foto8.jpg",
+  "img/foto9.jpg",
+  "img/foto10.jpg"
+];
+const TOTAL_PHOTOS = HERO_PHOTOS.length;
 let currentPhoto = 1;
 const heroImg = document.getElementById('hero-img');
 const photoCount = document.getElementById('photoCount');
@@ -580,8 +592,7 @@ const nextBtn = document.getElementById('nextBtn');
 function updateHero(){
   heroImg.style.opacity = 0;
   setTimeout(() => {
-    // EDITAR: las imágenes deben llamarse img/foto1.jpg, img/foto2.jpg ... img/foto10.jpg
-    heroImg.src = `IMG_8077.jpg`; `IMG_8043.jpg` ;
+    heroImg.src = HERO_PHOTOS[currentPhoto - 1];
     heroImg.style.opacity = 1;
   }, 200);
   photoCount.textContent = `${currentPhoto} / ${TOTAL_PHOTOS}`;
